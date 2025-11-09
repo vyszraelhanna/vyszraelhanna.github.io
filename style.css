@@ -1,0 +1,736 @@
+/* ========================================
+   FONTES E CONFIGURAÇÕES GLOBAIS
+   ======================================== */
+
+@font-face {
+    font-family: 'Hacked';
+    src: url('FONT/HACKED/HACKED/HACKED.ttf') format('truetype');
+}
+
+html {
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    background-image: url(/images/grid.svg);
+    background-position: 1px 0;
+    font-family: 'Hacked', sans-serif;
+    font-size: 11pt;
+    -webkit-font-smoothing: never;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   LAYOUT PRINCIPAL
+   ======================================== */
+
+.bgblackbox {
+    background: black;
+    width: 1070px;
+    min-height: 100vh;
+    margin: 0 auto;
+    vertical-align: top;
+}
+
+.bigcont {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 970px;
+    min-height: 750px;
+    margin: 0 auto;
+}
+
+/* ========================================
+   LOGO & SLOGAN
+   ======================================== */
+
+.logocont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.logocont h1 {
+    margin: 50px 0 0;
+}
+
+.logo-text {
+    font-family: 'Hacked';
+    font-size: 150px;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    color: #000;
+    background: #00ff33;
+    display: inline-block;
+    animation: flicker 2.5s infinite alternate;
+    text-shadow:
+        -3px -3px 0 #ff00ff,
+        3px -3px 0 #ff00ff,
+        -3px 3px 0 #ff00ff,
+        3px 3px 0 #ff00ff,
+        0 0 10px #ff00ff,
+        0 0 20px #e100ff;
+    /* Borda rosa mais fina (1px) */
+    -webkit-text-stroke: 1px #ff00ff;
+    text-stroke: 1px #ff00ff;
+}
+
+.slogan {
+    font-family: 'Hacked';
+    color: white;
+    font-size: 22px;
+    margin: 0 0 5px 170px;
+    padding: 0;
+}
+
+/* Animação do logo */
+@keyframes flicker {
+
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+        opacity: 1;
+        text-shadow:
+            0 0 10px #00ff33,
+            0 0 20px #00ff33,
+            0 0 40px #00ff33,
+            0 0 80px #00ff33,
+            0 0 160px #00ff33;
+    }
+
+    20%,
+    24%,
+    55% {
+        opacity: 0.4;
+        text-shadow: none;
+    }
+}
+
+/* ========================================
+   SIDEBARS (ESQUERDA E DIREITA)
+   ======================================== */
+
+.sidecont {
+    width: 135px;
+    max-width: 135px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.sidecont ul,
+.sidecont li {
+    list-style: none;
+    margin: 0;
+    padding: 1px 0 2px 5px;
+    text-align: left;
+    text-indent: -1em;
+    line-height: 0.7;
+    font-family: 'Hacked';
+    color: rgb(102, 255, 1);
+    font-size: 20px;
+}
+
+.sidecont2 {
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+/* Radio Playing */
+#radioplaying {
+    max-width: 135px;
+    font-family: 'MS UI Gothic', sans-serif;
+    font-size: 10.5pt;
+    border: 1px solid white;
+}
+
+#radioplaying a,
+#radioplaying a:visited {
+    color: white;
+    text-decoration: none;
+    padding: 0;
+    margin: -2px;
+}
+
+#radioplaying a:hover {
+    color: blue;
+}
+
+/* Menu de navegação */
+.menu {
+    background-color: black;
+    max-width: 135px;
+    border: 3px solid rgb(5, 255, 5);
+    border-style: outset;
+    text-align: left;
+    color: hotpink;
+    margin-left: 30px;
+    margin-top: 50px;
+}
+
+.menu li {
+    text-align: left;
+    margin: 5px auto 5px -7px;
+    font-family: 'decoder', sans-serif;
+    color: hotpink;
+    font-size: 18px;
+}
+
+.menu a {
+    color: hotpink;
+}
+
+.menu a:hover {
+    color: white;
+}
+
+.menu li:before {
+    content: " > ";
+    font-style: italic;
+    color: rgb(102, 255, 1);
+    font-size: 15px;
+    padding: 0;
+    margin-left: 25px;
+}
+
+#menu li {
+    text-align: left;
+    margin-left: 10px;
+    color: rgb(102, 255, 1);
+    margin-top: 10px;
+}
+
+#lastupdate {
+    color: white;
+    text-align: left;
+    font-size: 9.3pt;
+    margin-top: -1px;
+    padding-bottom: 2px;
+}
+
+/* Botões da sidebar */
+.button1 {
+    text-align: right;
+    color: white;
+    font-family: 'decoder', sans-serif;
+    font-size: 18px;
+}
+
+.button1 img {
+    padding-top: 5px;
+}
+
+/* Gameracam */
+.gameracamborder {
+    max-width: 140px;
+    margin: 3px 0 -1px 3px;
+    padding: 1px;
+    border: 1px solid white;
+    z-index: 1;
+}
+
+#gameracam li:before {
+    content: "★ ";
+    font-style: italic;
+    color: rgb(102, 255, 1);
+    margin: 3px 0 0 0;
+}
+
+/* Find Me */
+#findme {
+    margin-top: 20px;
+}
+
+#findme li:before {
+    content: "❤ ";
+    font-style: italic;
+    font-size: 15px;
+    color: lime;
+}
+
+/* ========================================
+   CONTEÚDO PRINCIPAL
+   ======================================== */
+
+.main {
+    background-color: black;
+    min-width: 650px;
+    max-width: 650px;
+    min-height: 750px;
+    margin: 0 auto;
+    border: 7px solid #61ff06e5;
+    color: rgb(94, 255, 0);
+    position: relative;
+}
+
+.homecontainer {
+    display: flex;
+    width: 650px;
+    margin: auto;
+    justify-content: space-around;
+}
+
+.leftcont {
+    width: 375px;
+    margin: 0;
+    font-family: 'Hacked';
+}
+
+.welcome {
+    font-family: 'Hacked';
+    text-align: right;
+    margin-top: 10px;
+    letter-spacing: 0.5px;
+}
+
+.welcome2 {
+    text-align: justify;
+    color: white;
+    margin-top: -10px;
+}
+
+.welcome2 b {
+    color: rgb(255, 37, 146);
+    margin: 0;
+    font-size: 20px;
+}
+
+.welcome2 a,
+.welcome2 a:visited {
+    color: lime;
+}
+
+.welcome2 a:hover {
+    color: white;
+}
+
+/* Button Row */
+.buttonrow {
+    text-align: center;
+    margin: 20px auto;
+}
+
+.buttonrow img {
+    margin: 0 6px;
+}
+
+/* Updates flutuante */
+.floatingupdt {
+    font-family: 'MS UI Gothic', sans-serif;
+    position: absolute;
+    background-color: rgb(255, 9, 132);
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: -15px;
+    margin-top: -10px;
+}
+
+/* Scroller de updates */
+.scrollerhome {
+    width: 175px;
+    font-size: 13px;
+    overflow: auto;
+    border: 3px solid gainsboro;
+    background: black;
+    padding: 10px;
+    font-family: 'MS UI Gothic', sans-serif;
+    height: 375px;
+}
+
+.scrollerhome a,
+.scrollerhome a:visited {
+    color: hotpink;
+}
+
+.scrollerhome a:hover {
+    color: white;
+}
+
+.scrollerhome img {
+    vertical-align: top;
+}
+
+
+/* Game Feature */
+.game-feature {
+    width: 374px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    position: relative;
+    border-top: 1px solid white;
+    padding-top: 5px;
+}
+
+.game-info {
+    display: flex;
+    flex-direction: row;
+    z-index: 0;
+}
+
+.game-details ul {
+    padding: 0;
+    margin: 0 0 0 10px;
+}
+
+.game-details small {
+    font-family: 'MS UI Gothic', sans-serif;
+    color: white;
+}
+
+.game-title {
+    padding: 0;
+    margin: 5px 0 1px 5px;
+    text-align: right;
+    color: white;
+    font-family: 'MS UI Gothic', sans-serif;
+}
+
+.blackoutline {
+    padding: 1px;
+    border: 1px solid white;
+}
+
+/* referral */
+.referral-link,
+.referral-link a,
+.referral-link a:visited {
+    font-size: 7pt;
+    color: black;
+    background-color: white;
+    letter-spacing: 0.05em;
+    font-family: Consolas, monospace;
+    max-height: 15px;
+    min-height: 15px;
+    text-align: center;
+    text-decoration: none;
+    position: relative;
+}
+
+.referral-link:hover {
+    background-color: lime;
+}
+
+/* ========================================
+   FOOTER & PEGI
+   ======================================== */
+
+footer {
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    margin: 5px auto 0;
+}
+
+#pegirating {
+    position: fixed;
+    bottom: 0;
+    left: 5px;
+    margin: 5px;
+    z-index: 1000;
+}
+
+#pegirating img {
+    width: 50px;
+}
+
+
+
+@keyframes blinker {
+    60% {
+        opacity: 0.5;
+    }
+}
+
+.sendemail {
+    font-family: 'decoder', sans-serif;
+    animation: blinker 1s linear infinite;
+    text-align: right;
+    margin: -5px 8px 3px 0;
+    line-height: 0.7;
+    font-size: 18px;
+    color: hotpink;
+}
+
+.sendemail a,
+.sendemail a:visited {
+    color: hotpink;
+}
+
+.sendemail a:hover {
+    color: white;
+}
+
+.sticker1,
+.sticker2,
+.sticker1game,
+.sticker2game,
+.sticker2gameleft,
+.sticker1gameleft,
+.sticker3gameleft,
+.sticker3game {
+    position: absolute;
+    z-index: 1;
+}
+
+.sticker1 {
+    top: -35px;
+    left: -75px;
+}
+
+.sticker2 {
+    top: -35px;
+    left: -95px;
+    transform: scaleX(-1);
+}
+
+.sticker1game {
+    top: -45px;
+    left: -75px;
+}
+
+.sticker2game {
+    top: 1205px;
+    left: -95px;
+    transform: scaleX(-1);
+}
+
+.sticker3game {
+    top: 3000px;
+    left: -95px;
+    transform: scaleX(-1);
+}
+
+.sticker2gameleft {
+    top: 550px;
+    left: 65px;
+    transform: scaleX(-1);
+}
+
+.sticker1gameleft {
+    top: 600px;
+    left: 85px;
+}
+
+.sticker3gameleft {
+    top: 2300px;
+    left: 85px;
+}
+
+.sticker1 img,
+.sticker2 img,
+.sticker1game img,
+.sticker2game img,
+.sticker2gameleft img,
+.sticker1gameleft img,
+.sticker3gameleft img,
+.sticker3game img {
+    width: 80%;
+}
+
+.sticker1 img:hover,
+.sticker2 img:hover,
+.sticker1game img:hover,
+.sticker2game img:hover,
+.sticker2gameleft img:hover,
+.sticker1gameleft img:hover,
+.sticker3gameleft img:hover,
+.sticker3game img:hover {
+    transform: scaleX(-1);
+}
+
+/* ==== Unified entry styles for technical posts AND projects ==== */
+
+.entry {
+    padding: 10px;
+    margin: 15px 0;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid lime;
+    border-radius: 6px;
+    box-shadow: 0 0 6px rgba(0, 255, 0, 0.06);
+    color: #fff;
+    overflow: hidden;
+}
+
+/* If the entry contains a thumbnail image, use a side-by-side layout */
+.entry.has-thumb {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+/* Thumbnail (projects) — either use .thumb > img or a direct .entry img.project-img */
+.entry .thumb,
+.entry img.project-img {
+    flex: 0 0 200px;
+    width: 200px;
+    height: 120px;
+    object-fit: cover;
+    border: 1px solid lime;
+    border-radius: 4px;
+    display: block;
+}
+
+/* Ensure images that are direct children get the same styling */
+.entry>img {
+    /* if someone uses <div class="entry"><img>... fallback */
+    max-width: 200px;
+    width: 200px;
+    height: 120px;
+    object-fit: cover;
+    border: 1px solid lime;
+    border-radius: 4px;
+    margin-right: 12px;
+}
+
+/* entry content box (text area) */
+.entry-box {
+    flex: 1 1 auto;
+    min-width: 180px;
+}
+
+/* Title */
+.entry-box h2 {
+    margin: 0 0 6px 0;
+    color: lime;
+    font-size: 1.5rem;
+}
+
+/* Date */
+.entry-date {
+    font-size: 0.85rem;
+    color: #ffffff;
+    margin-bottom: 6px;
+}
+
+/* Preview text */
+.entry-preview {
+    color: #dc05f0;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+/* readmore / see more */
+.readmore,
+.see-more,
+.entry-box .readmore,
+.entry-box .see-more {
+    color: lime;
+    text-decoration: none;
+    border: 1px solid lime;
+    padding: 6px 8px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    display: inline-block;
+    transition: background 0.12s, color 0.12s, transform 0.12s;
+}
+
+.readmore:hover,
+.see-more:hover {
+    background: lime;
+    color: black;
+    transform: translateY(-2px);
+}
+
+/* Divider style */
+.divider1 {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(0, 255, 0, 0.08), rgba(255, 0, 255, 0.06), rgba(0, 255, 0, 0.08));
+
+}
+
+/* Pagination (shared with technical) */
+.entryfooter {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12pt;
+}
+
+.entryfooter td {
+    font-family: "MS UI Gothic", monospace;
+    color: lime;
+    text-shadow: 0 0 4px lime;
+    border: 1px solid rgba(0, 255, 0, 0.12);
+    background: rgba(0, 0, 0, 0.12);
+    border-radius: 6px;
+}
+
+.arrow-cell {
+    width: 25%;
+}
+
+.arrow-link {
+    color: lime;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14pt;
+    transition: 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.arrow-link:hover {
+    color: #ff77ff;
+    transform: scale(1.08);
+    text-shadow: 0 0 8px #ff77ff;
+}
+
+.arrow-disabled {
+    color: #fffefe;
+    opacity: 0.6;
+}
+
+.page-info {
+    color: lime;
+    font-weight: bold;
+}
+
+/* Responsive: stack image above text on narrow screens */
+@media (max-width: 720px) {
+    .entry.has-thumb {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .entry .thumb,
+    .entry img.project-img,
+    .entry>img {
+        width: 100%;
+        height: auto;
+        max-height: 360px;
+        flex: 0 0 auto;
+        margin: 0 0 5px 0;
+    }
+
+    .entry-box {
+        width: 100%;
+    }
+}
+
+/* small visual polish on hover */
+.entry:hover {
+    box-shadow: 0 0 14px rgba(0, 255, 0, 0.10);
+    transform: translateY(-2px);
+}
